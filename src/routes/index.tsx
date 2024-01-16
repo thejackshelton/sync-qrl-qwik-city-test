@@ -1,16 +1,20 @@
-import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+
+import { component$, sync$ } from "@builder.io/qwik";
+
+export const Test = component$(() => {
+  return (
+    <button onKeyDown$={sync$((e: KeyboardEvent) => e.preventDefault())}>
+      Click me!
+    </button>
+  );
+});
 
 export default component$(() => {
   return (
-    <>
-      <h1>Hi 👋</h1>
-      <p>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </p>
-    </>
+    <div style={{ height: "2000px" }}>
+      <Test />
+    </div>
   );
 });
 
